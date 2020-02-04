@@ -1,5 +1,10 @@
 FROM alpine
+
+RUN apk -Uuv add --no-cache curl ca-certificates bash
+
 ADD script.sh /bin/script.sh
+ADD basic_card.json /tmp
+
 RUN chmod +x /bin/script.sh
-RUN apk -Uuv add curl ca-certificates
+
 ENTRYPOINT /bin/script.sh

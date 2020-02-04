@@ -1,0 +1,40 @@
+{
+	"@context": "https://schema.org/extensions",
+	"@type": "MessageCard",
+	"potentialAction": [
+	{
+	    "@type": "OpenUri",
+	    "name": "Open Build Page",
+	    "targets": [
+		{
+		    "os": "default",
+		    "uri": "TEMPLATE_BUILD_URL"
+		}
+	    ]
+	}
+	],
+	"sections": [
+	{
+	    "facts": [
+		{
+		    "name": "Project:",
+		    "value": "TEMPLATE_PROJECT_NAME"
+		},
+		{
+		    "name": "Version",
+		    "value": "TEMPLATE_PROJECT_VERSION"
+		},
+		{
+		    "name": "Author",
+		    "value": "TEMPLATE_AUTHOR"
+		}
+	    ],
+	    "text": "",
+	"markdown": false
+	}
+	],
+	"markdown": false,
+	"summary": " ",
+	"themeColor": "0072C6",
+	"title": "TEMPLATE_STATUS_ICONTEMPLATE_TITLE"
+}
