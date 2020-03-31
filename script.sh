@@ -19,7 +19,7 @@ else
     PROJECT_VERSION="$DRONE_TAG"
 fi
 DATE='+%d.%m.%Y %H:%M'
-datestr=$(date --date=@${DRONE_BUILD_FINISHED} ${DATE})
+datestr=$(date --date=@${DRONE_BUILD_FINISHED} "${DATE}")
 
 cp /tmp/basic_card.json /tmp/card_to_send.json
 sed -i "s/TEMPLATE_BUILD_URL/${DRONE_BUILD_LINK//\//\\/}/" /tmp/card_to_send.json
@@ -29,6 +29,7 @@ sed -i "s/TEMPLATE_COMMIT_MESSAGE/${DRONE_COMMIT_MESSAGE}/" /tmp/card_to_send.js
 
 
 sed -i "s/TEMPLATE_AUTHOR/${DRONE_COMMIT_AUTHOR}/" /tmp/card_to_send.json
+sed -i "s/TEMPLATE_FULLNAME/${DRONE_COMMIT_AUTHOR_NAME}/" /tmp/card_to_send.json
 sed -i "s/TEMPLATE_FINISHED/${datestr}/" /tmp/card_to_send.json
 sed -i "s;TEMPLATE_IMAGE_AUTHOR;${DRONE_COMMIT_AUTHOR_AVATAR};" /tmp/card_to_send.json
 

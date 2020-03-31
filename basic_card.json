@@ -15,7 +15,7 @@
     ],
     "sections": [
     {
-        "activityTitle": "TEMPLATE_AUTHOR",
+        "activityTitle": "TEMPLATE_FULLNAME (@TEMPLATE_AUTHOR)",
         "activitySubtitle": "TEMPLATE_FINISHED",
         "activityImage": "TEMPLATE_IMAGE_AUTHOR",
         "facts": [
