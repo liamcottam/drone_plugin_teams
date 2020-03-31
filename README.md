@@ -12,6 +12,8 @@ Sample drone.yml content for notification
     when:
       branch: master
 ```
+![notification](https://raw.githubusercontent.com/ykorzikowski/drone_plugin_teams/master/notification.png)
+
 Required : 
 teams_webhook :  webhook url   (Get it ! : Channel option, Connectors, add and select Incoming Webhook)  
 text : Message content  
