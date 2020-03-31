@@ -19,7 +19,7 @@ else
     PROJECT_VERSION="$DRONE_TAG"
 fi
 DATE='+%d.%m.%Y %H:%M'
-datestr=$(date --date=@${DRONE_BUILD_FINISHED} ${DATE}`)
+datestr=$(date --date=@${DRONE_BUILD_FINISHED} ${DATE})
 
 cp /tmp/basic_card.json /tmp/card_to_send.json
 sed -i "s/TEMPLATE_BUILD_URL/${DRONE_BUILD_LINK//\//\\/}/" /tmp/card_to_send.json
