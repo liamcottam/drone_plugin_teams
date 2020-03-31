@@ -28,6 +28,7 @@ sed -i "s/TEMPLATE_PROJECT_VERSION/${PROJECT_VERSION}/" /tmp/card_to_send.json
 COMMIT_MSG_ESCAPED=$(echo ${DRONE_COMMIT_MESSAGE} |sed "s/;/\;/g")
 sed -i "s;TEMPLATE_COMMIT_MESSAGE;${COMMIT_MSG_ESCAPED};" /tmp/card_to_send.json
 
+sed -i "s;TEMPLATE_COMMIT_URL;${DRONE_COMMIT_LINK};" /tmp/card_to_send.json
 
 sed -i "s/TEMPLATE_AUTHOR/${DRONE_COMMIT_AUTHOR}/" /tmp/card_to_send.json
 sed -i "s/TEMPLATE_FULLNAME/${DRONE_COMMIT_AUTHOR_NAME}/" /tmp/card_to_send.json

@@ -11,6 +11,16 @@
             "uri": "TEMPLATE_BUILD_URL"
         }
         ]
+    },
+    {
+        "@type": "OpenUri",
+        "name": "Go to commit",
+        "targets": [
+        {
+            "os": "default",
+            "uri": "TEMPLATE_COMMIT_URL"
+        }
+        ]
     }
     ],
     "sections": [
