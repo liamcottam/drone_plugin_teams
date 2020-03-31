@@ -17,7 +17,7 @@
     {
         "activityTitle": "TEMPLATE_AUTHOR",
         "activitySubtitle": "TEMPLATE_FINISHED",
-        "activityImage": "TEMPLATE_AUTHOR_IMAGE",
+        "activityImage": "TEMPLATE_IMAGE_AUTHOR",
         "facts": [
         {
             "name": "Project",
