@@ -1,37 +1,42 @@
 #!/bin/bash
 
 if [ -z "$PLUGIN_WEBHOOK" ]; then
-	if [ -z "$TEAMS_WEBHOOK" ]; then
-		echo "Need to set teams_webhook URL"
-		exit 1
-	else
-		WEBHOOK="$TEAMS_WEBHOOK"
-	fi
+    if [ -z "$TEAMS_WEBHOOK" ]; then
+        echo "Need to set teams_webhook URL"
+        exit 1
+    else
+        WEBHOOK="$TEAMS_WEBHOOK"
+    fi
 else
-	WEBHOOK="$PLUGIN_WEBHOOK"
+    WEBHOOK="$PLUGIN_WEBHOOK"
 fi
 
 
 
 if [ "$DRONE_TAG" = "" ]; then
-	PROJECT_VERSION="$DRONE_COMMIT_SHA"
+    PROJECT_VERSION="$DRONE_COMMIT_SHA"
 else
-	PROJECT_VERSION="$DRONE_TAG"
+    PROJECT_VERSION="$DRONE_TAG"
 fi
-
-
+DATE='+%d.%m.%Y %H:%M'
+datestr=date --date=@${DRONE_BUILD_FINISHED} ${DATE}
 
 cp /tmp/basic_card.json /tmp/card_to_send.json
 sed -i "s/TEMPLATE_BUILD_URL/${DRONE_BUILD_LINK//\//\\/}/" /tmp/card_to_send.json
 sed -i "s/TEMPLATE_PROJECT_NAME/${DRONE_REPO_NAME}/" /tmp/card_to_send.json
 sed -i "s/TEMPLATE_PROJECT_VERSION/${PROJECT_VERSION}/" /tmp/card_to_send.json
+sed -i "s/TEMPLATE_COMMIT_MESSAGE/${DRONE_COMMIT_MESSAGE}/" /tmp/card_to_send.json
+
+
 sed -i "s/TEMPLATE_AUTHOR/${DRONE_COMMIT_AUTHOR}/" /tmp/card_to_send.json
+sed -i "s/TEMPLATE_FINISHED/${datestr}/" /tmp/card_to_send.json
+sed -i "s/TEMPLATE_AUTHOR_IMAGE/${DRONE_COMMIT_AUTHOR_AVATAR}/" /tmp/card_to_send.json
 
 if [ "$DRONE_BUILD_STATUS" = "failure" ]
 then
-	sed -i 's/TEMPLATE_STATUS_ICON/\&#x274C; Failed /' /tmp/card_to_send.json
+    sed -i 's/TEMPLATE_STATUS_ICON/\&#x274C; Failed /' /tmp/card_to_send.json
 else
-	sed -i 's/TEMPLATE_STATUS_ICON/\&#x2714; Succesful /' /tmp/card_to_send.json
+    sed -i 's/TEMPLATE_STATUS_ICON/\&#x2714; Succesful /' /tmp/card_to_send.json
 
 fi
 

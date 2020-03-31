@@ -15,18 +15,21 @@
     ],
     "sections": [
     {
+        "activityTitle": "TEMPLATE_AUTHOR",
+        "activitySubtitle": "TEMPLATE_FINISHED",
+        "activityImage": "TEMPLATE_AUTHOR_IMAGE",
         "facts": [
         {
-            "name": "Project:",
+            "name": "Project",
             "value": "TEMPLATE_PROJECT_NAME"
+        },
+        {
+            "name": "Commit Message",
+            "value": "TEMPLATE_COMMIT_MESSAGE"
         },
         {
             "name": "Version",
             "value": "TEMPLATE_PROJECT_VERSION"
-        },
-        {
-            "name": "Author",
-            "value": "TEMPLATE_AUTHOR"
         }
         ],
         "text": "",
