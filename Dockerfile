@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk -Uuv add --no-cache curl ca-certificates bash
+RUN apk -Uuv add --no-cache curl ca-certificates bash tzdata
 
 ADD script.sh /bin/script.sh
 ADD basic_card.json /tmp
