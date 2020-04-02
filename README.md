@@ -15,6 +15,7 @@ steps:
     image: ykorzikowski/drone_plugin_teams
     settings:
       webhook: https://outlook.office.com/webhook/<..>
+    environment:
       TZ: Europe/Brussels
     when:
       branch: master
