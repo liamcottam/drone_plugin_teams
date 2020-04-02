@@ -11,7 +11,11 @@ else
     WEBHOOK="$PLUGIN_WEBHOOK"
 fi
 
+if [ -z "$TZ" ]; then
+  TZ="Europe/Brussels"
+fi
 
+echo "$TZ" >  /etc/timezone
 
 if [ "$DRONE_TAG" = "" ]; then
     PROJECT_VERSION="$DRONE_COMMIT_SHA"
