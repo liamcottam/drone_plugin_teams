@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ -z "$PLUGIN_WEBHOOK" ]; then
-    if [ -z "$TEAMS_WEBHOOK" ]; then
+if [ -z ${PLUGIN_WEBHOOK+x} ]; then
+    if [ -z ${TEAMS_WEBHOOK+x} ]; then
         echo "Need to set teams_webhook URL"
         exit 1
     else
@@ -10,12 +10,6 @@ if [ -z "$PLUGIN_WEBHOOK" ]; then
 else
     WEBHOOK="$PLUGIN_WEBHOOK"
 fi
-
-if [ -z "$TZ" ]; then
-  TZ="Europe/Brussels"
-fi
-
-echo "$TZ" >  /etc/timezone
 
 if [ "$DRONE_TAG" = "" ]; then
     PROJECT_VERSION="$DRONE_COMMIT_SHA"
