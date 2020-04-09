@@ -38,7 +38,7 @@ then
     sed -i 's/TEMPLATE_STATUS_ICON/\&#x274C; Failed /' /tmp/card_to_send.json
     sed -i 's/TEMPLATE_COLOR/c60000/' /tmp/card_to_send.json
 else
-    sed -i 's/TEMPLATE_STATUS_ICON/\&#x2714; Succesful /' /tmp/card_to_send.json
+    sed -i 's/TEMPLATE_STATUS_ICON/\&#x2714; Successful /' /tmp/card_to_send.json
     sed -i 's/TEMPLATE_COLOR/00c61e/' /tmp/card_to_send.json
 
 fi
