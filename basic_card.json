@@ -38,6 +38,10 @@
             "value": "TEMPLATE_COMMIT_MESSAGE"
         },
         {
+            "name": "Branch",
+            "value": "TEMPLATE_PROJECT_BRANCH"
+        },
+        {
             "name": "Version",
             "value": "TEMPLATE_PROJECT_VERSION"
         }
